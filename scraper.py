@@ -33,8 +33,11 @@ display.start()
 driver = webdriver.Chrome('/root/.wdm/drivers/chromedriver/linux64/98.0.4758.80/chromedriver',options=options)
 
 
-driver.get(links[0][0])
-print(driver.find_element_by_xpath('/html/body/div[1]/div/section/main/div/div/div[1]/div[2]/div[3]').text)
+driver.get('https://dappradar.com/binance-smart-chain/games/mobox-nft-farmer')
+element = driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[1]/div[2]/section/div[2]/div[1]/div[1]/div[2]/ul')
+items = element.find_elements_by_tag_name('a')
+for item in items:
+    print(item.get_attribute('href'))
 # print(driver.find_element_by_xpath('/html/body/div[1]/div/section/main/div/div/div[2]/div[1]/div[2]/div[3]/div[2]').text, type(driver.find_element_by_xpath('/html/body/div[1]/div/section/main/div/div/div[2]/div[1]/div[2]/div[3]/div[2]').text))
 
 # for link in links:
